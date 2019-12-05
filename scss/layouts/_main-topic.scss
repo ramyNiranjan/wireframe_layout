@@ -1,0 +1,70 @@
+.main-topic {
+  @extend %center;
+  display: grid;
+  grid-gap: 20px;
+  background: #fafafa;
+  padding: 100px;
+  &__title {
+    text-align: center;
+    @include common-font-style(#9d5c5f, 30px, bold);
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+  }
+  &__card-title {
+    margin-bottom: 5px;
+    @include common-font-style(#9d5c5f, 25px, bold);
+  }
+  &__card {
+    display: flex;
+    @include flexStyle(column, center, center, nowrap);
+    text-align: center;
+  }
+  &__card-img {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  &__card-text {
+    @include common-font-style(#000000, 14px, normal);
+  }
+}
+
+@include media-lg {
+  .main-topic {
+    @include center-media;
+    padding: 30px 70px;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+      :nth-child(odd) {
+        :nth-child(1) {
+          order: 2;
+        }
+        :nth-child(2) {
+          order: 1;
+        }
+      }
+    }
+    &__card {
+      height: 400px;
+      display: grid;
+      grid-template-columns: minmax(330px, 1fr) minmax(330px, 1fr);
+      grid-column: 1 / span 2;
+      margin: 20px;
+    }
+    &__card-img {
+      object-fit: cover;
+    }
+    &__card-text {
+      text-align: center;
+      padding: 50px;
+    }
+  }
+}

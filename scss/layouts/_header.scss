@@ -1,0 +1,49 @@
+.header {
+  @import url("https://fonts.googleapis.com/css?family=Unica+One&display=swap");
+  @include flexStyle(column, space-around, center, nowrap);
+  background: $primary-clr;
+
+  width: 100%;
+  padding: 5px;
+  height: 110px;
+  &__logo {
+    padding: 2px 35px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: $theam-clr;
+    font-family: "Unica One", cursive;
+  }
+  &__nav {
+    width: 100%;
+  }
+  &__nav-list {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+  }
+}
+
+// media-query start
+
+@include media-lg {
+  .header {
+    @include flexStyle(row, flex-start, stretch, nowrap);
+    height: 70px;
+    &__logo {
+      align-self: center;
+    }
+    &__nav {
+      align-self: center;
+    }
+    &__nav-list {
+      :first-child {
+        margin-left: auto;
+      }
+    }
+    &__nav-link {
+      padding: 20px;
+      @include common-font-style(#eaddd9, 16px, bold);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import "./base/reset";
+
+@import "./utilities/varibles";
+@import "./utilities/share";
+@import "./utilities/mediaQuery";
+
+@import "./layouts/header";
+@import "./layouts/showcase";
+@import "./layouts/main-topic";
+@import "./layouts/gallary";
+@import "./layouts/blog-gallary";
+@import "./layouts/extend-blog";
+@import "./layouts/grid-gallary";
+@import "./layouts/footer";
+
+body {
+  font-size: 12px;
+  font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+}

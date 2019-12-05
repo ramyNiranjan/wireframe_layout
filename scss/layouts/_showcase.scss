@@ -1,0 +1,46 @@
+.showcase {
+  @extend %center;
+  background: radial-gradient(circle at 50% 0, #394951be, #0c202ad5 93%),
+    url("../images/header/header-small.jpg") center center no-repeat;
+  background-size: cover;
+  height: 485px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  grid-gap: 10px;
+  &__title {
+    @include common-font-style($theam-clr, 25px, bold);
+  }
+  &__text {
+    text-align: center;
+    line-height: 22.6px;
+    letter-spacing: 0.59px;
+    @include common-font-style(#f0f0f0, 16px, bold);
+  }
+}
+
+// media-query start
+@include media-lg {
+  .showcase {
+    @include center-media;
+    background: radial-gradient(circle at 50% 0, #394951be, #0c202ad5 73%),
+      url("../images/header/header-large.jpg") center center no-repeat;
+    background-size: cover;
+    height: 860px;
+    align-content: center;
+    justify-content: start;
+    &__title {
+      @include common-font-style($theam-clr, 52px, bold);
+    }
+    &__text {
+      @include common-font-style(#f0f0f0, 20px, bold);
+    }
+    &__container {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      margin: 50px;
+    }
+  }
+}

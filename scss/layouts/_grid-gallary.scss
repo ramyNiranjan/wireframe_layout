@@ -1,0 +1,110 @@
+.grid-gallary {
+  position: relative;
+
+  &__content {
+    @extend %center;
+    @for $i from 1 through 4 {
+      :nth-child(#{$i}) {
+        background: url("../images/section-5-collage/collage-#{$i}.jpg")
+          no-repeat
+          center
+          center;
+        background-size: cover;
+      }
+    }
+
+    :nth-child(1n + 5) {
+      display: none;
+    }
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    grid-template-rows: repeat(2, 150px);
+    grid-gap: 5px;
+    align-content: space-between;
+  }
+  &__detail {
+    @extend %center;
+    @include flexStyle(column, space-evenly, flex-start, nowrap);
+    position: absolute;
+    background: #9aa5aa;
+    max-width: 250px;
+    z-index: 3;
+    top: calc(50% - 115px);
+    left: calc(50% - 125px);
+  }
+  &__title {
+    @include common-font-style(#ffaf89, 18px, bold);
+    margin-bottom: 5px;
+  }
+  &__text {
+    @include common-font-style(#fff, 14px, normal);
+  }
+}
+
+@include media-md {
+  .grid-gallary {
+    &__content {
+      @include center-media;
+    }
+
+    &__detail {
+      @include center-media;
+      max-width: 450px;
+      top: calc(50% - 63px);
+      left: calc(50% - 225px);
+    }
+  }
+}
+@include media-lg {
+  .grid-gallary {
+    position: relative;
+    padding: 0 10px;
+
+    &__content {
+      @include center-media;
+      @for $i from 1 through 8 {
+        :nth-child(#{$i}) {
+          background: url("../images/section-5-collage/collage-#{$i}.jpg")
+            no-repeat
+            center
+            center;
+          background-size: cover;
+          grid-area: set-gridArea-name(#{$i});
+        }
+      }
+
+      :nth-child(1n + 5) {
+        display: block;
+      }
+      height: 650px;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      grid-template-rows: repeat(3, minmax(120px, 1fr));
+      grid-gap: 15px;
+      grid-template-areas:
+        "fi se . . fv sn"
+        "fi fr . . sx sn"
+        "th fr . . sx ei";
+      place-content: center;
+    }
+    &__detail {
+      @include center-media;
+      @include flexStyle(column, center, center, nowrap);
+      position: absolute;
+      background: #9aa5aa;
+      max-width: 650px;
+      height: 250px;
+      z-index: 3;
+      top: calc(50% - 160px);
+      left: calc(50% - 325px);
+    }
+    &__title {
+      @include common-font-style(#ffaf89, 24px, bold);
+      margin-bottom: 10px;
+    }
+    &__text {
+      @include common-font-style(#fff, 16px, normal);
+    }
+  }
+}

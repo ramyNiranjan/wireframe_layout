@@ -1,0 +1,28 @@
+@mixin flexStyle($direction, $justy-spacing, $align-spacing, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-spacing;
+  justify-content: $justy-spacing;
+  flex-wrap: $wrap;
+}
+%center {
+  padding: 20px;
+  // margin: auto;
+}
+@mixin center-media {
+  padding: 20px;
+  // margin: auto;
+}
+
+@function set-font-bold($bold-value) {
+  @return map-get($font-weight, $bold-value);
+}
+@function set-gridArea-name($gridArea-name) {
+  @return map-get($grid-area, $gridArea-name);
+}
+
+@mixin common-font-style($clr, $size, $fontWeight) {
+  color: $clr;
+  font-size: $size;
+  font-weight: set-font-bold($fontWeight);
+}
